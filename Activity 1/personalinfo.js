@@ -1,83 +1,70 @@
-let studentName = 'Ortega, Ezra R.';
-let ID = 6689;
-let YearLevel = 'II';
-let Program = 'Bachelor of Science in Information Technology';
+const personalInfo = {
+    studentName: 'Ortega, Ezra R.',
+    Number: 6689,
+    Program: 'Bachelor of Science in Information Technology',
+    yearLevel: 'II',
 
-const courses = [
-  { name: 'IPT', grade: 80, units: 3 },
-  { name: 'App Dev', grade: 88, units: 3 },
-  { name: 'Pathfit 4', grade: 87, units: 2 },
-  { name: 'Networking 1', grade: 89, units: 3 },
-  { name: 'Event Driven Programming', grade: 92, units: 3 },
-  { name: 'Arts Appreciation', grade: 80, units: 3 },
-  { name: 'STS', grade: 85, units: 3 },
-  { name: 'Work Education', grade: 93, units: 0 },
-  { name: 'Colloqium', grade: 90, units: 0 }
-];
+    enrolledCourses: {
+        course1: { courseTitle: 'IPT', units: 3, finalGrade: 80 },
+        course2: { courseTitle: 'App Dev', units: 3, finalGrade: 88 },
+        course3: { courseTitle: 'Pathfit 4', units: 2, finalGrade: 87 },
+        course4: { courseTitle: 'Networking 1', units: 3, finalGrade: 89 },
+        course5: { courseTitle: 'Event Driven Programming', units: 3, finalGrade: 92 },
+        course6: { courseTitle: 'Arts Appreciation', units: 3, finalGrade: 80 },
+        course7: { courseTitle: 'STS', units: 3, finalGrade: 85 },
+        course8: { courseTitle: 'Work Education', units: 0, finalGrade: 93 },
+        course9: { courseTitle: 'Colloqium', units: 0, finalGrade: 90 }
+    }
+};
 
-let totalGrade = 
-courses[0].grade * courses[0].units +
-courses[1].grade * courses[1].units +
-courses[2].grade * courses[2].units +
-courses[3].grade * courses[3].units +
-courses[4].grade * courses[4].units +
-courses[5].grade * courses[5].units +
-courses[6].grade * courses[6].units +
-courses[7].grade * courses[7].units +
-courses[8].grade * courses[8].units;
+const c1 = personalInfo.enrolledCourses.course1;
+const c2 = personalInfo.enrolledCourses.course2;
+const c3 = personalInfo.enrolledCourses.course3;
+const c4 = personalInfo.enrolledCourses.course4;
+const c5 = personalInfo.enrolledCourses.course5;
+const c6 = personalInfo.enrolledCourses.course6;
+const c7 = personalInfo.enrolledCourses.course7;
+const c8 = personalInfo.enrolledCourses.course8;
+const c9 = personalInfo.enrolledCourses.course9;
 
-let totalUnits = 
-courses[0].units +
-courses[1].units +
-courses[2].units +
-courses[3].units +
-courses[4].units +
-courses[5].units +
-courses[6].units +
-courses[7].units +
-courses[8].units;
+const totalUnits = c1.units + c2.units + c3.units + c4.units + c5.units +
+    c6.units + c7.units + c8.units + c9.units;
 
-let gwa = totalGrade / totalUnits;
-let letter;
+const totalWeightedGrade = (c1.finalGrade * c1.units) +
+    (c2.finalGrade * c2.units) +
+    (c3.finalGrade * c3.units) +
+    (c4.finalGrade * c4.units) +
+    (c5.finalGrade * c5.units) +
+    (c6.finalGrade * c6.units) +
+    (c7.finalGrade * c7.units) +
+    (c8.finalGrade * c8.units) +
+    (c9.finalGrade * c9.units);
 
-if (gwa >= 98) {
-    letter = 'A';
-} else if (gwa >= 94) {
-    letter = 'A-';
-} else if (gwa >= 90) {
-    letter = 'B+';
-} else if (gwa >= 87) {
-    letter = 'B';
-} else if (gwa >= 83) {
-    letter = 'B-';
-} else if (gwa >= 80) {
-    letter = 'C+';
-} else if (gwa >= 77) {
-    letter = 'C';
-} else if (gwa >= 75) {
-    letter = 'D';
-} else {
-    letter = 'F';
+const computedGWA = (totalWeightedGrade / totalUnits).toFixed(2);
+
+let computedLetterGrade = 'F (Failed)';
+
+if (computedGWA >= 98 && computedGWA <= 100) {
+    computedLetterGrade = 'A';
+} else if (computedGWA >= 94 && computedGWA < 98) {
+    computedLetterGrade = 'A-';
+} else if (computedGWA >= 90 && computedGWA < 94) {
+    computedLetterGrade = 'B+';
+} else if (computedGWA >= 87 && computedGWA < 90) {
+    computedLetterGrade = 'B';
+} else if (computedGWA >= 83 && computedGWA < 87) {
+    computedLetterGrade = 'B-';
+} else if (computedGWA >= 80 && computedGWA < 83) {
+    computedLetterGrade = 'C+';
+} else if (computedGWA >= 77 && computedGWA < 80) {
+    computedLetterGrade = 'C';
+} else if (computedGWA >= 75 && computedGWA < 77) {
+    computedLetterGrade = 'D';
 }
 
-console.log("Student name: " + studentName);
-console.log("ID Number: " + ID);
-console.log("Year Level: " + YearLevel);
-console.log("Program: " + Program);
-console.log("\n=== Courses Enrolled ===\n");
-console.log(courses[0].name + " | Grade: " + courses[0].grade + " | units: " + courses[0].units);
-console.log(courses[1].name + " | Grade: " + courses[1].grade + " | units: " + courses[1].units);
-console.log(courses[2].name + " | Grade: " + courses[2].grade + " | units: " + courses[2].units);
-console.log(courses[3].name + " | Grade: " + courses[3].grade + " | units: " + courses[3].units);
-console.log(courses[4].name + " | Grade: " + courses[4].grade + " | units: " + courses[4].units);
-console.log(courses[5].name + " | Grade: " + courses[5].grade + " | units: " + courses[5].units);
-console.log(courses[6].name + " | Grade: " + courses[6].grade + " | units: " + courses[6].units);
-console.log(courses[7].name + " | Grade: " + courses[7].grade + " | units: " + courses[7].units);
-console.log(courses[8].name + " | Grade: " + courses[8].grade + " | units: " + courses[8].units);
-console.log("GWA: " + gwa);
-console.log("Letter Grade: " + letter);
+personalInfo.gwa = computedGWA;
+personalInfo.letterGrade = computedLetterGrade;
 
-
-
-
-    
+console.log(`Name: ${personalInfo.studentName}`);
+console.log(`General Weighted Average: ${personalInfo.gwa}`);
+console.log(`Letter Grade: ${personalInfo.letterGrade}`);
