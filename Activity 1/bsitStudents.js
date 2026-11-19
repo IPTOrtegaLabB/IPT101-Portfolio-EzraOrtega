@@ -16,7 +16,7 @@ let bsit_students = {
             course9: { courseTitle: 'Colloqium', units: 0, finalGrade: 90 }
         }
     },
-
+ 
     Student2: {
         studentName: 'Benz Andrie Balbin',
         studentID: '2026-6719',
