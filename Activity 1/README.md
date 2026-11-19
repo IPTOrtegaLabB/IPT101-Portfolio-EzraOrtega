@@ -1,2 +1,2 @@
-Activity 1:
+Activity 1: +-= Revised =-+
 Calculate General Weighted Average (GWA)
